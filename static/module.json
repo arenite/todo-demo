@@ -3,17 +3,17 @@
     {
       "vendor": "arenite/template-module",
       "module": "doT",
-      "version": "master"
+      "version": "1.0.0"
     },
     {
       "vendor": "arenite/storage-module",
       "module": "storagejs",
-      "version": "master"
+      "version": "1.0.0"
     },
     {
       "vendor": "arenite/router-module",
       "module": "",
-      "version": "master"
+      "version": "1.0.0"
     }
   ],
   "context": {
