@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Template • TodoMVC</title>
-  <link rel="stylesheet" href="build/todo.css">
+  <link rel="stylesheet" type="text/css" href="build/todo.css">
 </head>
 <body>
 <div id="todoapp">
@@ -41,22 +41,20 @@
 <!--[if IE]>
 <script type="text/javascript" src="//cdn.rawgit.com/h5bp/html5-boilerplate/v5.0.0/src/js/plugins.js"></script>
 <![endif]-->
-<script type="application/javascript" src="//cdn.rawgit.com/lcavadas/arenite/1.1.0/build/arenite.min.js"></script>
+<script type="application/javascript" src="//cdn.rawgit.com/arenite/arenite/1.3.0/build/arenite.js"></script>
 <script>
+  window.App = {};
   window.console.trace = function () {
     window.console.log.apply(this, arguments);
   };
   Arenite({
     expose: 'arenite',
-    debug: function (arenite) {
-      return !!arenite.url.query().mode;
-    },
-    imports: [
-      {
-        url: 'js/app.js',
-        namespace: 'App'
+    debug: true,
+    imports: {
+      main: {
+        module: './'
       }
-    ]
+    }
   });
 </script>
 

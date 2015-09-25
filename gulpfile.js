@@ -14,7 +14,7 @@
   var arenitesrc = require('gulp-arenite-src');
   var server = require('gulp-server-livereload');
 
-  gulp.task('default', ['html', 'css', 'js', 'min']);
+  gulp.task('default', ['html', 'less', 'css', 'js', 'min']);
 
   gulp.task('min', function () {
     arenitesrc({
@@ -23,12 +23,11 @@
       },
       {
         export: 'arenite',
-        imports: [
-          {
-            url: 'js/app.js',//The path defined here needs to be relative to here
-            namespace: 'App'
+        imports: {
+          module: {
+            module: './'
           }
-        ]
+        }
       }, function (src) {
         src
           .pipe(concat('todo.min.js'))
@@ -52,16 +51,23 @@
   });
 
   gulp.task('css', function () {
-    gulp.src('static/less/**/*.less')
-      .pipe(less())
+    gulp.src('static/css/**/*.css')
+      .pipe(concat('todo.min.css'))
       .pipe(minifyCSS())
       .pipe(gulp.dest(build));
+  });
+
+  gulp.task('less', function () {
+    gulp.src('static/less/**/*.less')
+      .pipe(less())
+      .pipe(gulp.dest('css'));
   });
 
   gulp.task('watch', function () {
     gulp.watch('static/js/**/*.js', ['js', 'min']);
     gulp.watch('static/templates/**/*.html', ['html']);
-    gulp.watch('static/less/**/*.less', ['css']);
+    gulp.watch('static/less/**/*.less', ['less']);
+    gulp.watch('static/css/**/*.css', ['css']);
   });
 
   gulp.task('webserver', ['watch'], function () {

@@ -1,0 +1,142 @@
+{
+  "imports": [
+    {
+      "vendor": "arenite/template-module",
+      "module": "doT",
+      "version": "master"
+    },
+    {
+      "vendor": "arenite/storage-module",
+      "module": "storagejs",
+      "version": "master"
+    },
+    {
+      "vendor": "arenite/router-module",
+      "module": "",
+      "version": "master"
+    }
+  ],
+  "context": {
+    "dependencies": {
+      "default": {
+        "async": [
+          {
+            "url": "build/todo.min.js",
+            "instances": {
+              "jquery": "$"
+            }
+          }
+        ]
+      },
+      "dev": {
+        "async": [
+          "//code.jquery.com/jquery-2.1.3.min.js",
+          "js/model.js",
+          "js/list/list.js",
+          "js/list/listView.js",
+          "js/list/toolbarView.js",
+          "js/todo/todo.js",
+          "js/todo/todoView.js"
+        ]
+      }
+    },
+    "start": [
+      {
+        "instance": "templates",
+        "func": "add",
+        "args": [
+          {
+            "value": [
+              "build/template.html"
+            ]
+          }
+        ]
+      },
+      {
+        "instance": "model",
+        "func": "load"
+      }
+    ],
+    "instances": {
+      "model": {
+        "namespace": "App.Model",
+        "args": [
+          {
+            "ref": "arenite"
+          },
+          {
+            "ref": "storage"
+          }
+        ]
+      },
+      "list": {
+        "namespace": "App.List",
+        "init": "init",
+        "args": [
+          {
+            "ref": "arenite"
+          },
+          {
+            "ref": "model"
+          },
+          {
+            "instance": {
+              "namespace": "App.ListView",
+              "args": [
+                {
+                  "ref": "arenite"
+                },
+                {
+                  "ref": "jquery"
+                }
+              ],
+              "init": "init"
+            }
+          },
+          {
+            "instance": {
+              "namespace": "App.ToolbarView",
+              "args": [
+                {
+                  "ref": "arenite"
+                },
+                {
+                  "ref": "jquery"
+                }
+              ],
+              "init": "init"
+            }
+          }
+        ]
+      },
+      "todo": {
+        "factory": true,
+        "namespace": "App.Todo",
+        "args": [
+          {
+            "ref": "arenite"
+          },
+          {
+            "ref": "model"
+          },
+          {
+            "instance": {
+              "namespace": "App.TodoView",
+              "args": [
+                {
+                  "ref": "arenite"
+                },
+                {
+                  "ref": "jquery"
+                },
+                {
+                  "ref": "templates"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}
