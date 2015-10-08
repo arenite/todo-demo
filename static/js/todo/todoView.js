@@ -1,5 +1,5 @@
 /*global App*/
-App.TodoView = function (arenite, $, template) {
+App.TodoView = function (arenite, $) {
   var _$todo;
   var _$check;
   var _$label;
@@ -16,7 +16,7 @@ App.TodoView = function (arenite, $, template) {
 
   var _init = function (todo, parent) {
     _todo = todo;
-    _$todo = $(template.apply('todo', _todo));
+    _$todo = $(arenite.templates.apply('todo', _todo));
     parent.append(_$todo);
     _$remove = _$todo.find('.destroy');
     _$check = _$todo.find('.toggle');

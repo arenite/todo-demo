@@ -3,7 +3,7 @@
     {
       "vendor": "arenite/template-extension",
       "module": "doT",
-      "version": "1.0.0"
+      "version": "1.0.1"
     },
     {
       "vendor": "arenite/storage-module",
@@ -13,7 +13,7 @@
     {
       "vendor": "arenite/router-extension",
       "module": "",
-      "version": "1.0.0"
+      "version": "1.0.1"
     }
   ],
   "context": {
@@ -128,9 +128,6 @@
                 },
                 {
                   "ref": "jquery"
-                },
-                {
-                  "ref": "templates"
                 }
               ]
             }
