@@ -1,7 +1,7 @@
 {
   "imports": [
     {
-      "vendor": "arenite/template-module",
+      "vendor": "arenite/template-extension",
       "module": "doT",
       "version": "1.0.0"
     },
@@ -11,7 +11,7 @@
       "version": "1.0.0"
     },
     {
-      "vendor": "arenite/router-module",
+      "vendor": "arenite/router-extension",
       "module": "",
       "version": "1.0.0"
     }
