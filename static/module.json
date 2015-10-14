@@ -42,21 +42,25 @@
     },
     "start": [
       {
-        "instance": "templates",
-        "func": "add",
-        "args": [
-          {
-            "value": [
-              "build/template.html"
-            ]
-          }
-        ]
-      },
-      {
         "instance": "model",
         "func": "load"
       }
     ],
+    "extensions": {
+      "templates": {
+        "init": {
+          "wait": true,
+          "func": "add",
+          "args": [
+            {
+              "value": [
+                "build/template.html"
+              ]
+            }
+          ]
+        }
+      }
+    },
     "instances": {
       "model": {
         "namespace": "App.Model",
