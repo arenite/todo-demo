@@ -1,21 +1,21 @@
 {
-  "imports": [
-    {
+  "imports": {
+    "templates": {
       "vendor": "arenite/template-extension",
       "module": "doT",
-      "version": "1.0.1"
+      "version": "1.0.2"
     },
-    {
+    "storage": {
       "vendor": "arenite/storage-module",
       "module": "storagejs",
-      "version": "1.0.0"
+      "version": "1.0.2"
     },
-    {
+    "router": {
       "vendor": "arenite/router-extension",
       "module": "",
-      "version": "1.0.1"
+      "version": "1.0.5"
     }
-  ],
+  },
   "context": {
     "dependencies": {
       "default": {

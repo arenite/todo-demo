@@ -25,7 +25,7 @@
         export: 'arenite',
         imports: {
           module: {
-            module: './'
+            module: '.'
           }
         }
       }, function (src) {
